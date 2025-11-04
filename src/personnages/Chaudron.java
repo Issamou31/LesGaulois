@@ -1,23 +1,27 @@
 package personnages;
 
 public class Chaudron {
-	private int nbDoses;
+    private int quantitePotion;
+    private int forcePotion;
 
-	public Chaudron() {
-		this.nbDoses = 0;
-	}
 
-	public boolean resterPotion() {
-		return nbDoses > 0;
-	}
+    public void remplirChaudron(int quantite, int forcePotion) {
+        this.quantitePotion = quantite;
+        this.forcePotion = forcePotion;
+    }
 
-	public void remplirChaudron(int nbDoses) {
-		this.nbDoses = nbDoses;
-	}
+ 
+    public boolean resterPotion() {
+        return quantitePotion > 0;
+    }
 
-	public void utiliserDose() {
-		if (nbDoses > 0) {
-			nbDoses--;
-		}
-	}
+
+    public int prendreLouche() {
+        if (quantitePotion > 0) {
+            quantitePotion--;
+            return forcePotion;
+        } else {
+            return 0; 
+        }
+    }
 }
